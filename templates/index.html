@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                    </svg>
+                    <h1>Pneumonia Detection System</h1>
+                </div>
+                <p class="subtitle">AI-Powered Chest X-Ray Analysis</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="upload-section">
+                <div class="upload-card">
+                    <div class="upload-area" id="uploadArea">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <h2>Upload Chest X-Ray</h2>
+                        <p>Drag and drop or click to select an image</p>
+                        <p class="file-info">Supports: JPG, JPEG, PNG</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+
+                    <!-- Image Preview -->
+                    <div class="preview-area" id="previewArea" style="display: none;">
+                        <img id="previewImage" src="" alt="Preview">
+                        <button class="btn-remove" id="removeBtn">✕ Remove</button>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons" id="actionButtons" style="display: none;">
+                        <button class="btn btn-primary" id="analyzeBtn">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                            Analyze X-Ray
+                        </button>
+                        <button class="btn btn-secondary" id="clearBtn">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing X-Ray...</p>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-card">
+                    <h2>Analysis Results</h2>
+                    
+                    <div class="result-main">
+                        <div class="result-icon" id="resultIcon">
+                            <!-- Icon will be inserted here -->
+                        </div>
+                        <div class="result-content">
+                            <h3 id="resultTitle">Diagnosis</h3>
+                            <p class="result-prediction" id="resultPrediction">NORMAL</p>
+                            <p class="result-confidence">Confidence: <span id="resultConfidence">95.2%</span></p>
+                        </div>
+                    </div>
+
+                    <div class="result-details">
+                        <h4>Probability Distribution</h4>
+                        <div class="probability-bars">
+                            <div class="prob-item">
+                                <div class="prob-label">
+                                    <span class="prob-name">Normal</span>
+                                    <span class="prob-value" id="probNormal">5%</span>
+                                </div>
+                                <div class="prob-bar">
+                                    <div class="prob-fill prob-fill-normal" id="probBarNormal" style="width: 5%"></div>
+                                </div>
+                            </div>
+                            <div class="prob-item">
+                                <div class="prob-label">
+                                    <span class="prob-name">Pneumonia</span>
+                                    <span class="prob-value" id="probPneumonia">95%</span>
+                                </div>
+                                <div class="prob-bar">
+                                    <div class="prob-fill prob-fill-pneumonia" id="probBarPneumonia" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-disclaimer">
+                        <svg class="disclaimer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <p><strong>Disclaimer:</strong> This is an AI-assisted diagnostic tool. Always consult with a qualified medical professional for accurate diagnosis and treatment.</p>
+                    </div>
+
+                    <button class="btn btn-primary" id="analyzeAnotherBtn">
+                        Analyze Another X-Ray
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>Powered by Deep Learning • ResNet50 Architecture</p>
+                <p class="footer-note">Built with TensorFlow & Flask</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
