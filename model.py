@@ -150,7 +150,7 @@ if __name__ == '__main__':
     model = model_builder.build_model()
     model_builder.compile_model()
     
-    print("\n=== Model Architecture ===")
+    print("\n==== Model Architecture ====")
     model_builder.summary()
     print(f"\nTotal parameters: {model.count_params():,}")
     print("Model built successfully!")
