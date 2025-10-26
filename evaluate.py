@@ -39,7 +39,7 @@ class ModelEvaluator:
         y_true = test_gen.classes
         
         # Classification report
-        print("\n" + "=" * 50)
+        print("\n" + "=" * 40)
         print("CLASSIFICATION REPORT")
         print("=" * 50)
         print(classification_report(
