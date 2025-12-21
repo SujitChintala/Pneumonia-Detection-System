@@ -60,7 +60,7 @@ def predict_image(image_path, model_path=None):
     predicted_class = config.CLASS_NAMES[predicted_class_idx]
     
     # Display results
-    print("\n" + "=" * 50)
+    print("\n" + "=" * 45)
     print("PREDICTION RESULTS")
     print("=" * 50)
     print(f"Prediction: {predicted_class}")
