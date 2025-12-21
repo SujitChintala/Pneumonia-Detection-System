@@ -62,7 +62,7 @@ def predict_image(image_path, model_path=None):
     # Display results
     print("\n" + "=" * 45)
     print("PREDICTION RESULTS")
-    print("=" * 50)
+    print("=" * 40)
     print(f"Prediction: {predicted_class}")
     print(f"Confidence: {confidence:.2f}%")
     print("\nProbability Distribution:")
