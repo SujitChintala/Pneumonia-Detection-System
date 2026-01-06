@@ -4,6 +4,7 @@ Test the trained model with a single image
 """
 import tensorflow as tf
 from PIL import Image
+import numpy as np
 import sys
 import os
 import config
