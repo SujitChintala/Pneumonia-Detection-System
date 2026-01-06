@@ -3,7 +3,6 @@ Quick Prediction Script
 Test the trained model with a single image
 """
 import tensorflow as tf
-import numpy as np
 from PIL import Image
 import sys
 import os
